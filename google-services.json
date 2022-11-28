@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "578575372660",
+    "project_id": "dict-box-649d6",
+    "storage_bucket": "dict-box-649d6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:578575372660:android:d408a196768635b6c25c21",
+        "android_client_info": {
+          "package_name": "com.sanjai.dictbox"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "578575372660-skn5uavdqi07op59jncj8tk8bnetu29m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLIp_jHO7wHaJjWeVfX0_ni9mV6BzSkpg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "578575372660-skn5uavdqi07op59jncj8tk8bnetu29m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
