@@ -34,6 +34,7 @@ fun DictionaryScreen(
     Log.i("TAG", dictionary.toString())
     val typedWord = viewModel.typedWord.value
     val screenState = viewModel.screenState.isLoading
+    val error = viewModel.screenState.error != ""
     Scaffold {
         DictionaryScreenContent(
             dictionary = dictionary,

@@ -1,9 +1,6 @@
 package com.sanjai.dictbox.presentation.navigation.screen.dictionary_screen.composable
 
-import android.media.MediaPlayer
-import android.net.Uri
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -18,9 +15,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.modifier.ModifierLocalReadScope
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontFamily
@@ -30,10 +24,7 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.sanjai.dictbox.R
-import com.sanjai.dictbox.data.model.Dictionary
 import com.sanjai.dictbox.data.model.DictionaryItem
-import com.sanjai.dictbox.presentation.navigation.screen.Screen
 import com.sanjai.dictbox.presentation.navigation.screen.dictionary_screen.DictionaryScreenEvent
 import com.sanjai.dictbox.ui.theme.*
 
@@ -43,7 +34,7 @@ fun DictionaryScreenContent(
     typedWord: String,
     onEvent: (DictionaryScreenEvent) -> Unit,
     loadingState: Boolean,
-    navController: NavHostController
+    navController: NavHostController,
 ) {
     Surface(
         modifier = Modifier
@@ -109,15 +100,6 @@ fun DictionaryScreenContent(
                     letterSpacing = 1.sp,
                     fontWeight = FontWeight.ExtraBold
                 )
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_baseline_favorite_24),
-                    contentDescription = null,
-                    tint = Color.Red.copy(medium),
-                    modifier = Modifier
-                        .clickable {
-                            navController.navigate(Screen.SavedScreen.route)
-                        }
-                )
             }
             Spacer(modifier = Modifier.height(10.dp))
             OutlinedTextField(value = typedWord, onValueChange = {
@@ -164,7 +146,7 @@ fun DictionaryScreenContent(
                             color = Color.White
                         )
                     }
-                }else {
+                }else  {
                     LazyColumn {
                         items(
                             items = dictionary
@@ -172,7 +154,6 @@ fun DictionaryScreenContent(
                             DictionaryScreenContentItem(dict,onEvent)
                         }
                     }
-
                 }
             }
         }
@@ -212,7 +193,7 @@ fun DictionaryScreenContentItem(
                             color = Color(0xFFff99c8)
                         )
                         ) {
-                            append("WORD: ")
+                            append("WORD:  ")
                             withStyle(style = SpanStyle(
                                 fontSize = 14.sp,
                                 color = Color.White
@@ -225,18 +206,8 @@ fun DictionaryScreenContentItem(
                     fontWeight = FontWeight.Bold,
                     color = Color.White
                 )
-                IconButton(onClick = {
-                    onEvent(DictionaryScreenEvent.OnSaveWordClicked(dictionaryItem = dictionaryItem))
-                }) {
-                    Icon(
-                        painter = painterResource(id = R.drawable.ic_baseline_favorite_24),
-                        contentDescription = null,
-                        tint = Color.Red.copy(medium),
-                        modifier = Modifier
-                            .size(18.dp)
-                    )
-                }
             }
+            Spacer(modifier = Modifier.height(10.dp))
             Text(text = buildAnnotatedString {
                 withStyle(style = SpanStyle(
                     fontSize = 12.sp,

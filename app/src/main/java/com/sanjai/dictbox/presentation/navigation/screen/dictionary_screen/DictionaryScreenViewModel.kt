@@ -78,7 +78,8 @@ class DictionaryScreenViewModel @Inject constructor(
                              _searchedWord.value = it
                          }
                      }
-                     is Resource.Error -> {}
+                     is Resource.Error -> {
+                     }
                      is Resource.Loading -> {
                          screenState = screenState.copy(
                              isLoading = result.isLoading
